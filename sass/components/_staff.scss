@@ -1,15 +1,19 @@
 .section__other-style {
-    padding-top: 94px;
-    padding-bottom: 94px;
-
     background-color: var(--bg-second);
+
 }
 
 .team {
-    display: flex;
-    padding-left: 0px;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    @media screen and (min-width: $tablet) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    @media screen and (min-width: $desktop) {
+        padding-left: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
 }
 
 .team__item {
@@ -17,8 +21,48 @@
     box-shadow: 0px 1px 3px #00000033, 0px 1px 1px #00000024,
         0px 2px 1px #0000001f;
 
-    &:not(:first-child) {
-        margin-left: 30px;
+    &:nth-of-type(2n) {
+        margin-left: 0;
+    }
+
+    @media screen and (max-width: $max-mob) {
+        &:not(:last-child) {
+            margin-bottom: 30px;
+        }
+    }
+
+    @media screen and (min-width: $tablet) {
+        &:nth-of-type(2n) {
+            margin-left: 30px;
+        }
+    }
+
+    @media screen and (max-width: 1199px) {
+        &:nth-last-of-type(n + 3) {
+            margin-bottom: 30px;
+        }
+    }
+
+    @media screen and (min-width: $desktop) {
+        &:not(:first-child) {
+            margin-left: 30px;
+        }
+    }
+}
+
+.team__img {
+    width: 100%;
+
+    @media screen and (min-width: $mobile) {
+        width: 450px;
+    }
+    
+    @media screen and (min-width: $tablet) {
+        width: 354px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        width: 270px;
     }
 }
 
@@ -42,7 +86,7 @@
 }
 
 .social {
-    display: inline-flex;
+    display: flex;
     justify-content: center;
 }
 
@@ -59,14 +103,15 @@
     background-color: var(--primari-white-color);
     border-radius: 50%;
 
-    transition: background-color 250ms var(--timing-function);
+    transition: background-color 250ms var(--timing-function),
+        fill 250ms var(--timing-function);
 
     &:hover,
     &:focus {
         background-color: var(--accent-color);
+        fill: var(--primari-white-color);
     }
 }
-
 
 .instagram,
 .twitter,
@@ -83,6 +128,11 @@
     .social__link:focus .facebook,
     .social__link:hover .linkedin,
     .social__link:focus .linkedin {
+        fill: var(--primari-white-color);
+    }
+
+    .social__link:hover &,
+    .social__link:focus & {
         fill: var(--primari-white-color);
     }
 }

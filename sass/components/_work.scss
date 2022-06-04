@@ -1,14 +1,14 @@
-.section--padding-bottom {
-    padding-bottom: 94px;
-}
+.section--hidden {
+    padding-top: 0px;
 
-.work {
-    padding-left: 0px;
+    @media screen and (max-width: 1199px) {
+        display: none;
+    }
 }
 
 .work__item {
     display: inline-block;
-    margin-right: -3px;
+    margin-right: -4px;
 }
 
 .work__item+.work__item {
